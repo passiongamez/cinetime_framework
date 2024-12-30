@@ -1,12 +1,16 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraSwap : MonoBehaviour
 {
     [SerializeField] CinemachineCamera[] _cinecams;
+    [SerializeField] CinemachineSequencerCamera _cinematicCam;
     [SerializeField] int _currentCamera = 0;
     [SerializeField] GameObject _cockPit;
     [SerializeField] GameObject _ship;
+    [SerializeField] float _idleTime;
+    [SerializeField] float _waitTime = 5f;
 
 
     private void Update()
@@ -18,8 +22,14 @@ public class CameraSwap : MonoBehaviour
             {
                 _currentCamera = 0;
             }
+            TurnOffCinematicCams();
             ResetCameraPriorities();
             SetPriority();
+        }
+
+        if(!Input.anyKey && Input.mousePositionDelta.y == 0 && Input.mousePositionDelta.x == 0 && _idleTime >= _waitTime)
+        {
+            CinematicCameraStart();
         }
     }
 
@@ -43,5 +53,16 @@ public class CameraSwap : MonoBehaviour
         {
             _cockPit.SetActive(true);
         }
+    }
+
+    void CinematicCameraStart()
+    {
+        _idleTime = Time.deltaTime + _waitTime;
+        _cinematicCam.gameObject.SetActive(true);
+        _cinematicCam.GetComponent<CinemachineSequencerCamera>().Priority = 5;
+    }
+    void TurnOffCinematicCams()
+    {
+        _cinematicCam.gameObject.SetActive(false);
     }
 }
