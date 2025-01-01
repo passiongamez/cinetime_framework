@@ -11,10 +11,12 @@ public class CameraSwap : MonoBehaviour
     [SerializeField] GameObject _ship;
     [SerializeField] float _idleTime;
     [SerializeField] float _waitTime = 5f;
+    [SerializeField] bool _cinematicsOn = false;
 
 
     private void Update()
     {
+        IdleGameSequence();
         if (Input.GetKeyDown(KeyCode.R))
         {
             _currentCamera++;
@@ -27,7 +29,7 @@ public class CameraSwap : MonoBehaviour
             SetPriority();
         }
 
-        if(!Input.anyKey && Input.mousePositionDelta.y == 0 && Input.mousePositionDelta.x == 0 && _idleTime >= _waitTime)
+        if(_idleTime >= _waitTime && _cinematicsOn == false)
         {
             CinematicCameraStart();
         }
@@ -57,12 +59,24 @@ public class CameraSwap : MonoBehaviour
 
     void CinematicCameraStart()
     {
-        _idleTime = Time.deltaTime + _waitTime;
         _cinematicCam.gameObject.SetActive(true);
         _cinematicCam.GetComponent<CinemachineSequencerCamera>().Priority = 5;
+        _cinematicsOn = true;
     }
     void TurnOffCinematicCams()
     {
         _cinematicCam.gameObject.SetActive(false);
+        _cinematicsOn = false;
+    }
+
+
+    void IdleGameSequence()
+    {
+        _idleTime += Time.deltaTime;
+        if (Input.anyKey || Input.mousePositionDelta.x > 0 || Input.mousePositionDelta.y > 0)
+        {
+            _idleTime = 0;
+            TurnOffCinematicCams();
+        }
     }
 }
