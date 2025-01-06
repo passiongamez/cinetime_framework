@@ -10,7 +10,7 @@ public class CameraSwap : MonoBehaviour
     [SerializeField] GameObject _cockPit;
     [SerializeField] GameObject _ship;
     [SerializeField] float _idleTime;
-    [SerializeField] float _waitTime = 8f;
+    [SerializeField] float _waitTime = 10f;
     [SerializeField] bool _cinematicsOn = false;
 
 

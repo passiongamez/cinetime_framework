@@ -1395,8 +1395,6 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 4492397122744325212, guid: e10b03669f520934684ff82c1f3bfdd7, type: 2}
-    value: {fileID: 1079805767}
   - key: {fileID: -5491022308492316010, guid: e10b03669f520934684ff82c1f3bfdd7, type: 2}
     value: {fileID: 7733596676056588123}
   - key: {fileID: 6949274382780460214, guid: e10b03669f520934684ff82c1f3bfdd7, type: 2}
@@ -1411,6 +1409,10 @@ PlayableDirector:
     value: {fileID: 1079805765}
   - key: {fileID: -6059299805702178492, guid: e10b03669f520934684ff82c1f3bfdd7, type: 2}
     value: {fileID: 254395428}
+  - key: {fileID: 6063030573697779339, guid: e10b03669f520934684ff82c1f3bfdd7, type: 2}
+    value: {fileID: 1079805767}
+  - key: {fileID: 491186170181123180, guid: e10b03669f520934684ff82c1f3bfdd7, type: 2}
+    value: {fileID: 7733596676053353306}
   m_ExposedReferences:
     m_References:
     - af0f7f83048a51d428946104c760613d: {fileID: 1060795314}
@@ -2105,12 +2107,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060795312}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.01576207, y: -0.9838289, z: -0.10843433, w: 0.14168365}
-  m_LocalPosition: {x: 3.4327977, y: -0.9874494, z: 17.054054}
-  m_LocalScale: {x: 0.24509808, y: 0.24509805, z: 0.24509808}
+  m_LocalRotation: {x: -0.04626176, y: 0.13878234, z: 0.006944195, w: 0.9892174}
+  m_LocalPosition: {x: -16.700527, y: -4.019165, z: 443.89807}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7733596676053196666}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1060795314
 MonoBehaviour:
@@ -2132,7 +2134,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 7733596676053196666}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -2758,7 +2760,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Press R to switch between 3rd Person camera and the cockpit camera. \nDon't
-    press anything for 5 seconds for the \ncinematic cameras to play.\nPress T to
+    press anything for 10 seconds for the \ncinematic cameras to play.\nPress T to
     accelerate. G to slow down."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4557,7 +4559,6 @@ Transform:
   - {fileID: 1326451733}
   - {fileID: 482214805}
   - {fileID: 577024906}
-  - {fileID: 1060795313}
   m_Father: {fileID: 1468305250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7733596676053353306
@@ -4665,6 +4666,7 @@ SceneRoots:
   - {fileID: 1860210801}
   - {fileID: 771865327}
   - {fileID: 255487953}
+  - {fileID: 1060795313}
   - {fileID: 1645222018}
   - {fileID: 1468305250}
   - {fileID: 736768037}

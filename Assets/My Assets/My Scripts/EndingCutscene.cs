@@ -20,7 +20,7 @@ public class EndingCutscene : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            _playerShip.transform.parent = _carrierShip.transform;
+            //_playerShip.transform.parent = _carrierShip.transform;
             _endingCutscene.Play();
             StartCoroutine(StartPortalEffect());
         }
